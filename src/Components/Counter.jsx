@@ -3,8 +3,8 @@ import React from 'react'
 
 function Counter() { 
     return (
-        <div>
-            <div className="stats stats-vertical lg:stats-horizontal shadow">
+        <div className="md:">
+            <div className="stats stats-horizontal xs:stats-vertical sm:stats-vertical md:stats-horizontal col-start-1 col-end-2 justify-self-center lg:stats-horizontal shadow">
   
   <div className="stat">
     <div className="stat-title">Applied jobs today</div>
