@@ -1,10 +1,10 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
+import Card from "../Components/ListCard";
+// import { formStateContext } from "../Helpers/context";
 
-
-
-function List() {
-  
-  
+function List({ val }) {
+    // const [formValue, setFormValue] = useState(useContext(formStateContext));
+    // console.log(formValue);
 
     return (
         <div className="bg-gray-100 w-96 rounded-2xl p-2 sm:mb-12">
@@ -36,7 +36,18 @@ function List() {
             <div className="divider"></div>
             <div className="list m-4">
                 <ul>
-                    <li></li>
+                    {val.map(({ comp, titles, desc, dat }) => {
+                        return (
+                            <li>
+                                <Card
+                                    company={comp}
+                                    title={titles}
+                                    description={desc}
+                                    date={dat}
+                                />
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         </div>
