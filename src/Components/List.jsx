@@ -1,15 +1,12 @@
 import React, { useState, useContext } from "react";
 import Card from "../Components/ListCard";
-// import { formStateContext } from "../Helpers/context";
+import { FaTrashAlt } from "react-icons/fa";
 
 function List({ val }) {
-    // const [formValue, setFormValue] = useState(useContext(formStateContext));
-    // console.log(formValue);
-
     return (
         <div className="bg-gray-100 w-96 rounded-2xl p-2 sm:mb-12">
-            <div className="form-control mt-2 ml-16">
-                <div className="input-group">
+            <div className="form-control mt-2 ml-8 ">
+                <div className="input-group ">
                     <input
                         type="text"
                         placeholder="Search…"
@@ -31,14 +28,18 @@ function List({ val }) {
                             />
                         </svg>
                     </button>
+                    <button className="btn btn-secondary">
+                        <FaTrashAlt />
+                    </button>
                 </div>
             </div>
+
             <div className="divider"></div>
             <div className="list m-4">
                 <ul>
-                    {val.map(({ comp, titles, desc, dat }) => {
+                    {val.map(({ key, comp, titles, desc, dat }) => {
                         return (
-                            <li>
+                            <li key={key}>
                                 <Card
                                     company={comp}
                                     title={titles}

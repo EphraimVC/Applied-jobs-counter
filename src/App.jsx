@@ -1,33 +1,42 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import List from "./Components/List";
 import Counter from "./Components/Counter";
-import { formStateContext } from "./Helpers/context";
+// import TestComp from "./Test";
 
 function App() {
     const [values, setValues] = useState([]);
+    const [key, setKey] = useState(0);
     const [comp, setComp] = useState();
     const [titles, setTitles] = useState();
     const [desc, setDesc] = useState();
     const [dat, setDat] = useState();
+    const counterCount = values.length;
+
+    // increments id number
+    const keyId = () => {
+        setKey(key + 1);
+    };
+
+    //   resets the input values
+    const resetVal = () => {
+        document.getElementById("formId").reset();
+    };
 
     // adds data to a new card
-
     const addData = (e) => {
-        const newCard = values;
-        newCard.push({ comp, titles, desc, dat });
-        setValues([...newCard]);
-        setComp("");
-        setTitles("");
-        setDesc("");
-        setDat("");
         e.preventDefault();
-
+        keyId();
+        const newCard = values;
+        newCard.push({ key, comp, titles, desc, dat });
+        setValues([...newCard]);
+        resetVal();
         console.log(newCard);
     };
+
     return (
         <div className="App grid grid-cols-3 m-8 sm:grid-cols-2 gap-3">
             <div className="sm:mb-20">
-                <form className="bg-gray-100 w-96 p-1 rounded-2xl">
+                <form id="formId" className="bg-gray-100 w-96 p-1 rounded-2xl">
                     <input
                         type="text"
                         placeholder="Company Name"
@@ -59,6 +68,7 @@ function App() {
                         className="input input-bordered input-primary max-w-xs m-8 block"
                     />
                     <button
+                        id="submitBtn"
                         className="btn btn-active btn-primary ml-8 mb-4 "
                         type="submit"
                         onClick={addData}
@@ -69,10 +79,10 @@ function App() {
             </div>
 
             <List val={values} />
-            <Counter />
+            <Counter counting={counterCount} date={dat} arrVal={values} />
+            {/* <TestComp date={dat} arrVal={values} /> */}
         </div>
     );
 }
 
 export default App;
- 
