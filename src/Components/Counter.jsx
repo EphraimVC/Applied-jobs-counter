@@ -40,9 +40,3 @@ function Counter(props) {
 
 export default Counter;
 
-// -AMOUT OF DAYS APPLIED IN THE CURRENT DAY
-
-// - HOW TO DO IT ?
-//  * match the current date with the date input value
-//  * if stat to count the amount of jobs that matches the date to the current day date
-// * compare day with day , month with month and so on

@@ -78,7 +78,7 @@ function App() {
                 </form>
             </div>
 
-            <List val={values} />
+            <List arrVal={values} />
             <Counter counting={counterCount} date={dat} arrVal={values} />
             {/* <TestComp date={dat} arrVal={values} /> */}
         </div>
