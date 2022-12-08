@@ -10,9 +10,9 @@ function Counter(props) {
         const getDate = currentDate();
         return formInputValue === getDate;
     };
-
+    //errors shows because mainArrValue is not an array *fix
     let sameDateArr = mainArrValue.filter(filtering);
-    const count = sameDateArr.length;
+    let count = sameDateArr.length;
 
     return (
         <div className="md:">
@@ -21,12 +21,6 @@ function Counter(props) {
                     <div className="stat-title">Applied jobs today</div>
                     <div className="stat-value">{count}</div>
                     <div className="stat-desc">{showDate}</div>
-                </div>
-
-                <div className="stat">
-                    <div className="stat-title">Denied jobs</div>
-                    <div className="stat-value">4,200</div>
-                    <div className="stat-desc">↗︎ 400 (22%)</div>
                 </div>
 
                 <div className="stat">

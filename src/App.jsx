@@ -86,3 +86,14 @@ function App() {
 }
 
 export default App;
+
+   
+
+    // toggles the check mark status on card (boolean)
+    // function checked(index) {
+    //     console.log(index);
+    //     let listDelete = values;
+    //     listDelete.splice(index, 1);
+    //     setValues(...listDelete);
+    //     console.log(listDelete);
+    // }

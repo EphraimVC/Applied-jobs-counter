@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 function Card(props) {
     return (
@@ -6,7 +6,7 @@ function Card(props) {
             <div className="card bg-purple-800 min-w-[21rem] min-h-28 max-h-32 p-3 inline-block">
                 <input
                     type="checkbox"
-                    className="checkbox checkbox-secondary float-right "
+                    className="checkbox checkbox-secondary float-right"
                 />
                 <div className="w-[90%] max-h-28 pb-1">
                     <h3>{props.company}</h3>
@@ -17,6 +17,6 @@ function Card(props) {
             </div>
         </>
     );
-};
+}
 
 export default Card;

@@ -188,3 +188,10 @@
 //         </div>
 //     );
 // }
+
+const removedJobArr = values.splice(x, 1);
+
+
+
+
+    
