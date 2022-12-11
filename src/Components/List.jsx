@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Card from "../Components/ListCard";
-import { FaTrashAlt } from "react-icons/fa";
 
 function List(props) {
     const [searchWord, setSearchWord] = useState("");
     // variable with props that holds array objects from app.js
     const Values = props.arrVal;
+    const deleteBtn = props.check;
+    console.log(Values);
 
     //  filters inside the array and looks for an item that matches the condition argument
 
@@ -43,14 +44,29 @@ function List(props) {
                             />
                         </svg>
                     </button>
-                    <button className="btn btn-secondary">
-                        <FaTrashAlt />
-                    </button>
                 </div>
             </div>
 
             <div className="divider"></div>
-            {searchWord === "" ? (
+
+            <div className="list m-4">
+                <ul>
+                    {Values.map(({ key, comp, titles, desc, dat }) => {
+                        return (
+                            <li key={key}>
+                                <Card
+                                    company={comp}
+                                    title={titles}
+                                    description={desc}
+                                    date={dat}
+                                    delete={deleteBtn}
+                                />
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+            {/* {searchWord === "" ? (
                 <div className="list m-4">
                     <ul>
                         {Values.map(({ key, comp, titles, desc, dat }) => {
@@ -61,6 +77,7 @@ function List(props) {
                                         title={titles}
                                         description={desc}
                                         date={dat}
+                                        delete={deleteBtn}
                                     />
                                 </li>
                             );
@@ -84,7 +101,7 @@ function List(props) {
                         })}
                     </ul>
                 </div>
-            )}
+            )} */}
         </div>
     );
 }
@@ -93,22 +110,23 @@ export default List;
 
 // between line 24 and 39
 
-// const extractComps = (arr, prop) => {
-//     let comps = arr.map((item) => item[prop]);
-//     return comps;
-// };
+ // const extractComps = (arr, prop) => {
+    // let comps = Values.map((item) => item["comp"]);
+    // return comps;
+    // };
 
-// const compArray = extractComps(values, "comp");
+    // const compArray = extractComps(Values, "comp");
 
-// console.log(compArray);
+    // console.log(comps);
 
-// const comparing = (wordCompare) => {
-//     return wordCompare == searchWord;
-// };
+    // const comparing = (wordCompare) => {
+    //     return wordCompare == searchWord;
+    // };
 
-// const selected = compArray.find(comparing);
+    // const Result = comps.find(comparing);
 
-// console.log(selected);
+    // console.log(Result);
+
 
 // //toggles the check mark status on card (boolean)
 // function checked() {

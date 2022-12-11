@@ -33,6 +33,15 @@ function App() {
         console.log(newCard);
     };
 
+    // toggles the check mark status on card (boolean)
+    function checked(index) {
+        let listDelete = values;
+        listDelete.splice(index, 1);
+        setValues(...listDelete);
+        console.log(listDelete);
+        console.log(index);
+    }
+
     return (
         <div className="App grid grid-cols-3 m-8 sm:grid-cols-2 gap-3">
             <div className="sm:mb-20">
@@ -78,7 +87,7 @@ function App() {
                 </form>
             </div>
 
-            <List arrVal={values} />
+            <List arrVal={values} check={checked} />
             <Counter counting={counterCount} date={dat} arrVal={values} />
             {/* <TestComp date={dat} arrVal={values} /> */}
         </div>
@@ -88,12 +97,3 @@ function App() {
 export default App;
 
    
-
-    // toggles the check mark status on card (boolean)
-    // function checked(index) {
-    //     console.log(index);
-    //     let listDelete = values;
-    //     listDelete.splice(index, 1);
-    //     setValues(...listDelete);
-    //     console.log(listDelete);
-    // }
